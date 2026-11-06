@@ -1,0 +1,19 @@
+import heapq
+
+class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.min_heap = []
+        for n in nums:
+            heapq.heappush(self.min_heap, n)
+        self.k = k
+
+    def add(self, val: int) -> int:
+        print(val)
+        heapq.heappush(self.min_heap, val)
+        sorted_heap = sorted(self.min_heap)
+        return sorted_heap[len(sorted_heap) - self.k]
+
+        [4, 5, 8, 2]
+        [2, 4, 5, 8]
+        [2, 3, 4, 4, 5, 5, 8, 9, 10]
